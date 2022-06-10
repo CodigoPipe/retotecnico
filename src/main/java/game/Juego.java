@@ -17,11 +17,26 @@ public class Juego {
 
     public Juego(Jugador jugador){
         this.jugador=jugador;
-        this.ronda=0;
+        this.ronda=1;
         this.categoria = getCategoria();
         this.pregunta = getPrimeraPregunta();
         this.respuestas = getRespuestas(this.pregunta);
     }
+
+    public String getCategoria(){
+
+    }
+
+    public String getPrimeraPregunta(){
+
+    }
+
+    public String getRespuestas(){
+
+    }
+
+
+
 
 
 

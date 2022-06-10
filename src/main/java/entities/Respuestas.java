@@ -1,10 +1,23 @@
 package entities;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "respuestas")
 public class Respuestas {
 
+    @Id
+    @Column(name = "respuestaId", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int respuestaId;
+
+    @Column(name = "respuesta",nullable = false)
     private String respuesta;
+
+    @Column(name = "correcta",nullable = false)
     private int correcta;
+
+    @Column(name = "preguntaId",nullable = false)
     private int preguntaId;
 
     public Respuestas(String respuesta) {
