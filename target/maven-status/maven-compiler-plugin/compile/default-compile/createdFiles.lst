@@ -1,0 +1,7 @@
+Main.class
+entities\Categorias.class
+entities\Preguntas.class
+game\Juego.class
+entities\Jugador.class
+entities\Respuestas.class
+repositories\CategoriaRepo.class

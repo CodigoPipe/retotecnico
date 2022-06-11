@@ -1,6 +1,7 @@
 package entities;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "respuestas")
@@ -17,10 +18,16 @@ public class Jugador {
     @Column(name = "puntaje",nullable = false)
     private int puntaje;
 
+    public Jugador(){
+
+    }
+
     public Jugador(String nombre, int puntaje) {
         this.nombre = nombre;
         this.puntaje = puntaje;
     }
+
+
 
     public int getJugadorId() {
         return jugadorId;
