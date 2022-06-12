@@ -25,6 +25,7 @@ public class Juego {
     private Respuesta respuestaCorrecta;
     private ArrayList<Pregunta> arregloPreguntas;
 
+    //constructor que usaremos en el main para inciar el juego, lanzara primera pregunta
     public Juego(Jugador jugador){
 
         preguntaRepo = new PreguntaRepo();
@@ -42,6 +43,7 @@ public class Juego {
 
     }
 
+    //metodo con la logica del juego, lanzara una nueva pregunta de acuerdo a la respuesta anterior y sumara puntaje
     public boolean siguienteRonda() {
 
         if(this.categoriaId >5){
@@ -78,6 +80,7 @@ public class Juego {
 
     }
 
+    //getters y setters
     public Pregunta getPreguntaRandom(ArrayList<Pregunta> arreglosDePreguntas) {
         int valorEntero = (int)Math.floor(Math.random()*(arreglosDePreguntas.size()));
         Pregunta pregunta = arreglosDePreguntas.get(valorEntero);

@@ -11,8 +11,10 @@ public class Main {
 
          System.out.println("Bienvenido viajero al juego intelectual 'MILLONARIO'," +
                 " este juego consiste en 5 rondas de 5 preguntas cada ronda, a medida " +
-                "que avanzas de ronda las preguntas de cultura general subiran de nivel, si estas preparado" +
+                "que avanzas de ronda las preguntas de cultura general subiran de nivel, puedes retirarse con tus ganancias" +
+                 " despues de acertar una pregunta(si llegas a 2500 puntos debes responder que si quieres retirarte), si estas preparado" +
                 " escribe ok y luego presiona enter");
+
 
         Scanner sc = new Scanner(System.in);
         String iniciaElJuego = sc.nextLine();
