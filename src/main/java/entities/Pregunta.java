@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.logging.Level;
 
 @Entity
 @Table(name = "preguntas")
@@ -23,6 +24,7 @@ public class Pregunta {
     private Set<Respuesta> respuestas;
 
     public Pregunta() {
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
     }
 
     public Pregunta(String pregunta) {

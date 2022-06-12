@@ -2,9 +2,10 @@ package entities;
 
 
 import javax.persistence.*;
+import java.util.logging.Level;
 
 @Entity
-@Table(name = "respuestas")
+@Table(name = "jugadores")
 public class Jugador {
 
     @Id
@@ -25,6 +26,7 @@ public class Jugador {
     public Jugador(String nombre, int puntaje) {
         this.nombre = nombre;
         this.puntaje = puntaje;
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
     }
 
 

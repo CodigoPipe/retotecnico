@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.*;
 import java.util.Set;
+import java.util.logging.Level;
+
 
 @Entity
 @Table(name = "categorias")
@@ -27,6 +29,7 @@ public class Categoria {
     public Categoria(String categoria, int dificultad) {
         this.categoria = categoria;
         this.dificultad = dificultad;
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
     }
 
     public int getCategoriaId() {

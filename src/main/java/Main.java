@@ -1,13 +1,10 @@
 import entities.Jugador;
-import entities.Pregunta;
-import entities.Respuesta;
 import game.Juego;
-import repositories.PreguntaRepo;
-import repositories.RespuestaRepo;
+import repositories.JugadorRepo;
 
-import java.util.List;
-import java.util.Random;
+import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -24,21 +21,47 @@ public class Main {
         if(iniciaElJuego.equalsIgnoreCase("OK")){
             System.out.println("Ingresa tu nombre y pulsa Enter");
             nombreJugador = sc.nextLine();
-        }
 
-        Jugador jugadorActual = new Jugador(nombreJugador,0);
+            Jugador jugadorActual = new Jugador(nombreJugador,0);
 
-        Juego juego = new Juego(jugadorActual);
 
-        boolean esValidoJuego = true;
 
-        while (esValidoJuego) {
+            Juego juego = new Juego(jugadorActual);
             int ans = sc.nextInt();
-            esValidoJuego = ans-1 == juego.getIndexRespuestaCorrecta();
-            System.out.println("Correcto");
-            juego.siguienteRonda();
-            ans = sc.nextInt();
+
+            boolean esCorrecta = ans-1 == juego.getIndexRespuestaCorrecta();
+
+            while (esCorrecta) {
+                System.out.println("\nCorrecto");
+
+                boolean seTermino = juego.siguienteRonda();
+
+                if(seTermino){
+                    esCorrecta = false;
+                } else{
+                    ans = sc.nextInt();
+                    esCorrecta = ans-1 == juego.getIndexRespuestaCorrecta();
+                }
+            }
+
+            sc.close();
+
+            JugadorRepo finJugador = new JugadorRepo();
+            finJugador.crearJugador(juego.getJugador());
+
+            ArrayList<Jugador> historicoJugadores = finJugador.listarJugadores();
+
+            String leftAlignFormat = "| %-15s | %-4d |%n";
+
+            System.out.format("+-----------------+------+%n");
+            System.out.format("| NOMBRE     | PUNTAJE   |%n");
+            System.out.format("+-----------------+------+%n");
+            for(Jugador jugador: historicoJugadores){
+                System.out.format(leftAlignFormat,jugador.getNombre(),jugador.getPuntaje());
+            }
+            System.out.format("+-----------------+------+%n");
         }
-        System.out.println("Juego temrminado");
+
+        System.out.println("Juego terminado");
     }
 }
